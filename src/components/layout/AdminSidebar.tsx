@@ -9,36 +9,36 @@ import {
   HiOutlineBuildingOffice2,
 } from "react-icons/hi2";
 import { HiOutlineEmojiHappy, HiOutlineBriefcase } from "react-icons/hi";
-import { useTheme } from "./ThemeContext";
+import { useTheme } from "@/providers/ThemeContext";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 export const adminMenu = [
-  { title: "Dashboard", href: "/admin/dashboard", icon: LuLayoutDashboard },
-  { title: "Account", href: "/admin/account", icon: FaUsers },
-  { title: "Phân quyền", href: "/admin/roles", icon: FaUserLock },
+  { title: "Dashboard", href: "/dashboard", icon: LuLayoutDashboard },
+  { title: "Account", href: "/account", icon: FaUsers },
+  { title: "Phân quyền", href: "/roles", icon: FaUserLock },
 ];
 
 export const sitemapMenu = [
-  { title: "Giới thiệu", href: "/admin/gioi-thieu", icon: HiOutlineBookOpen },
-  { title: "Tin tức", href: "/admin/tin-tuc", icon: HiOutlineNewspaper },
+  { title: "Giới thiệu", href: "/gioi-thieu", icon: HiOutlineBookOpen },
+  { title: "Tin tức", href: "/tin-tuc", icon: HiOutlineNewspaper },
   {
     title: "Tuyển sinh - đào tạo",
-    href: "/admin/tuyen-sinh-dao-tao",
+    href: "/tuyen-sinh-dao-tao",
     icon: HiOutlineBuildingOffice2,
   },
   {
     title: "Khoa - Đơn vị",
-    href: "/admin/khoa-donvi",
+    href: "/khoa-donvi",
     icon: HiOutlineBuildingOffice2,
   },
   {
     title: "Đời sống sinh viên",
-    href: "/admin/doi-song-sinh-vien",
+    href: "/doi-song-sinh-vien",
     icon: HiOutlineEmojiHappy,
   },
-  { title: "Nghiên cứu", href: "/admin/nghien-cuu", icon: LuFlaskConical },
-  { title: "Hợp tác", href: "/admin/hop-tac", icon: FaRegHandshake },
-  { title: "Tuyển dụng", href: "/admin/tuyen-dung", icon: HiOutlineBriefcase },
+  { title: "Nghiên cứu", href: "/nghien-cuu", icon: LuFlaskConical },
+  { title: "Hợp tác", href: "/hop-tac", icon: FaRegHandshake },
+  { title: "Tuyển dụng", href: "/tuyen-dung", icon: HiOutlineBriefcase },
 ];
 
 export function AdminSidebar({

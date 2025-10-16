@@ -1,0 +1,60 @@
+.customUpload {
+  width: 100%;
+
+  :global {
+    .ant-upload-wrapper {
+      width: 100% !important;
+    }
+
+    .ant-radio-group {
+      width: 100%;
+    }
+
+    .ant-upload-drag {
+      width: 100% !important;
+      height: 150px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+
+      &:hover {
+        border-color: var(--primary-blue) !important;
+      }
+    }
+  }
+
+  .ant-image-mask {
+    border: none !important;
+  }
+}
+
+.imagePreview {
+  width: 100%;
+
+  background-image: linear-gradient(45deg, #e0e0e0 25%, transparent 25%),
+    linear-gradient(-45deg, #e0e0e0 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #e0e0e0 75%),
+    linear-gradient(-45deg, transparent 75%, #e0e0e0 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid var(--gray-8);
+
+  // Dark mode
+  .dark & {
+    background-image: linear-gradient(45deg, #3a3a3a 25%, transparent 25%),
+      linear-gradient(-45deg, #3a3a3a 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #3a3a3a 75%),
+      linear-gradient(-45deg, transparent 75%, #3a3a3a 75%);
+    background-color: #1f1f1f;
+  }
+
+  :global {
+    .ant-image {
+      width: 100%;
+      display: block;
+    }
+  }
+}

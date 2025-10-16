@@ -1,7 +1,7 @@
 "use client";
 
 import { Flex, Switch, Avatar } from "antd";
-import { useTheme } from "./ThemeContext";
+import { useTheme } from "@/providers/ThemeContext";
 import { useEffect, useState } from "react";
 import { Space } from "antd";
 import { useParams, usePathname } from "next/navigation";
