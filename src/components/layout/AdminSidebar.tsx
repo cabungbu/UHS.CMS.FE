@@ -122,7 +122,7 @@ export function AdminSidebar({
       {!collapsed && (
         <h3
           className="text-xs font-semibold px-4 mb-2"
-          style={{ color: "var(--primary-blue)" }}
+          style={{ color: "var(--outline-color)" }}
         >
           Admin Menu
         </h3>
@@ -132,7 +132,7 @@ export function AdminSidebar({
       {!collapsed && (
         <h3
           className="text-xs font-semibold px-4 mt-4 mb-2"
-          style={{ color: "var(--primary-blue)" }}
+          style={{ color: "var(--outline-color)" }}
         >
           Sitemap Menu
         </h3>

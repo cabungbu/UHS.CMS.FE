@@ -26,6 +26,7 @@ cách 2:
   --primary-green: #00a859;
   --primary-blue: #28306a;
   --gray-8: #e2e1e1;
+  --outline-color: #28306a;
 }
 
 [data-theme="dark"] {
@@ -39,8 +40,9 @@ cách 2:
   --menu-active-bg: #413f3f;
   --menu-active-text: #00a859;
   --primary-green: #00fd8;
-  --primary-blue: oklch(88.2% 0.059 254.128);
+  --primary-blue: oklch(0.34 0.09 253.69);
   --gray-8: #3d3d3d;
+  --outline-color: #7fb7ff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -73,6 +75,16 @@ h6 {
   user-select: text !important; /* Cho phép chọn */
   pointer-events: auto !important;
   color: inherit !important;
+}
+
+@layer components {
+  .btn-primary-blue {
+    @apply !bg-[var(--primary-blue)] !text-white !border-[var(--primary-blue)] hover:!bg-[#394b9a];
+  }
+
+  .btn-outline-blue {
+    @apply !bg-[var(--sidebar-bg)] !text-[var(--outline-color)]  !border-[var(--outline-color)];
+  }
 }
 
 :root {

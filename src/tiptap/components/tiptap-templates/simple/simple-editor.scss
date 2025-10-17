@@ -56,18 +56,16 @@ body,
 
 .simple-editor-wrapper {
   background: var(--tt-toolbar-bg-color);
-  border-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .simple-editor-content {
   // max-width: 648px;
-  width: 100%;
-  margin: 0 auto;
   height: max-content;
   display: flex;
   flex-direction: column;
   flex: 1;
-  border-radius: 10px;
 }
 
 .simple-editor-content .tiptap.ProseMirror.simple-editor {

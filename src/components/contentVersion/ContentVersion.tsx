@@ -25,48 +25,128 @@ export default function ContentVersion({
 
   const displayStatus = statusLabelMap[status] || status;
 
+  const statusActionsMap: Record<
+    string,
+    {
+      label: string;
+      type?: "primary" | "default" | "dashed" | "text" | "link";
+      className?: string;
+      onClick?: () => void;
+    }[]
+  > = {
+    draft: [
+      {
+        label: "Gửi duyệt",
+        type: "primary",
+        className: "btn-primary-blue",
+        onClick: () => console.log("Submit for approval"),
+      },
+      {
+        label: "Lưu nháp",
+        className: "btn-outline-blue",
+        onClick: () => console.log("Save draft"),
+      },
+    ],
+    submitted: [
+      {
+        label: "Duyệt",
+        type: "primary",
+        className: "btn-primary-blue",
+        onClick: () => console.log("duyệt"),
+      },
+      {
+        label: "Từ chối",
+        className: "btn-outline-blue",
+        onClick: () => console.log("Từ chối"),
+      },
+    ],
+    approved: [],
+    rejected: [
+      {
+        label: "Sửa và gửi lại",
+        type: "primary",
+        className: "btn-primary-blue",
+        onClick: () => console.log("Resubmit"),
+      },
+      {
+        label: "Duyệt",
+        className: "btn-outline-blue",
+        onClick: () => console.log("Duyệt"),
+      },
+    ],
+  };
+
+  const actions = statusActionsMap[status] || [];
+
   return (
-    <Flex
-      vertical
-      className={`w-full  border border-[var(--gray-8)] rounded-lg px-5 rounded-lg`}
-    >
-      <div
-        className={`${bgColor} flex flex-col gap-2 p-5 rounded-tl-lg rounded-tr-lg`}
+    <Flex vertical>
+      <Flex
+        vertical
+        className={`w-full  border border-[var(--gray-8)] px-5 rounded-lg`}
       >
-        <Flex justify="space-between" align="center">
-          <p className="font-bold text-lg text-[var(--primary-blue)]">
-            {language === Language.VI
-              ? "Phiên bản tiếng Việt"
-              : "Phiên bản tiếng Anh"}
-          </p>
-          <Button size="small" type="primary">
-            Private
-          </Button>
-        </Flex>
+        <div
+          className={`${bgColor} flex flex-col gap-2 p-5 rounded-tl-lg rounded-tr-lg`}
+        >
+          <Flex justify="space-between" align="center">
+            <p className="font-bold text-lg text-[var(--primary-blue)]">
+              {language === Language.VI
+                ? "Phiên bản tiếng Việt"
+                : "Phiên bản tiếng Anh"}
+            </p>
+            <Button size="small" type="primary">
+              Private
+            </Button>
+          </Flex>
 
-        <Flex align="center" className="gap-2 text-sm text-gray-700">
-          <MdChecklist />
-          <p>Trạng thái:</p>
-          <p className="font-semibold capitalize">{displayStatus}</p>
-        </Flex>
+          <Flex align="center" className="gap-2 text-sm text-gray-700">
+            <MdChecklist />
+            <p>Trạng thái:</p>
+            <p className="font-semibold capitalize">{displayStatus}</p>
+          </Flex>
 
-        <Flex align="center" className="gap-2 text-sm text-gray-700">
-          <MdChecklist />
-          <p>Lần cuối cập nhật: 16:02 01/10/2015</p>
-        </Flex>
+          <Flex align="center" className="gap-2 text-sm text-gray-700">
+            <MdChecklist />
+            <p>Lần cuối cập nhật: 16:02 01/10/2015</p>
+          </Flex>
 
-        <Flex align="center" className="gap-2 text-sm text-gray-700">
-          <MdChecklist />
-          <p>Người cập nhật</p>
-          <Avatar
-            size={24}
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcbODdhLiKymNx_SRs_EhG1oAbqpO0XOLhzA&s"
-          />
-          <p>Ngô Thanh Vân</p>
-        </Flex>
-      </div>
+          <Flex align="center" className="gap-2 text-sm text-gray-700">
+            <MdChecklist />
+            <p>Người cập nhật</p>
+            <Avatar
+              size={24}
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcbODdhLiKymNx_SRs_EhG1oAbqpO0XOLhzA&s"
+            />
+            <p>Ngô Thanh Vân</p>
+          </Flex>
+        </div>
 
-      <SimpleEditor />
+        <SimpleEditor />
+      </Flex>
+
+      {actions.length > 0 && (
+        <Flex justify="end" className="w-100-percent px-2 !mt-4 gap-2">
+          {actions.map((action, idx) =>
+            language === Language.VI ? (
+              <Button
+                className="w-full"
+                key={idx}
+                type={action.type || "default"}
+                onClick={action.onClick}
+              >
+                {action.label}
+              </Button>
+            ) : (
+              <Button
+                key={idx}
+                className={`${action.className} w-full`}
+                onClick={action.onClick}
+              >
+                {action.label}
+              </Button>
+            )
+          )}
+        </Flex>
+      )}
     </Flex>
   );
 }
