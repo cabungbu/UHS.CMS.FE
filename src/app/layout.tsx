@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider, ThemeBody } from "@/providers/ThemeContext";
 import AntdProvider from "@/providers/AntdProvider";
+import { ReduxProvider } from "@/providers";
 import { Inter } from "next/font/google";
 import AppLayout from "@/components/layout/AdminLayout";
 
@@ -28,9 +29,11 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider>
           <AntdProvider>
-            <ThemeBody>
-              <AppLayout>{children}</AppLayout>
-            </ThemeBody>
+            <ReduxProvider>
+              <ThemeBody>
+                <AppLayout>{children}</AppLayout>
+              </ThemeBody>
+            </ReduxProvider>
           </AntdProvider>
         </ThemeProvider>
       </body>

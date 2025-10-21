@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { Space } from "antd";
 import { useParams, usePathname } from "next/navigation";
 import { sitemapMenu, adminMenu } from "./AdminSidebar";
+import LogoutButton from "../logoutButton/LogoutButton";
 
 export default function ThemeToggle() {
   const { currentTheme, toggleTheme } = useTheme();
@@ -57,6 +58,7 @@ export default function ThemeToggle() {
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcbODdhLiKymNx_SRs_EhG1oAbqpO0XOLhzA&s"
           />
         </Space>
+        <LogoutButton />
       </Flex>
     </Flex>
   );
