@@ -4,6 +4,7 @@ import type { NextRequest } from "next/server";
 export async function middleware(req: NextRequest) {
   const path = req.nextUrl.pathname;
   const refresh_token = req.cookies.get("refresh_token");
+  const access_token = req.cookies.get("access_token");
 
   const publicPaths = ["/login", "/callback", "/api"];
 
@@ -11,7 +12,7 @@ export async function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
-  if (!refresh_token) {
+  if (!refresh_token || !access_token) {
     try {
       const baseUrl = req.nextUrl.origin;
       await fetch(`${baseUrl}/api/auth/logout`, {
