@@ -27,6 +27,7 @@ cách 2:
   --primary-blue: #28306a;
   --gray-8: #e2e1e1;
   --outline-color: #28306a;
+  --gray-7: #a7a7a7;
 }
 
 [data-theme="dark"] {
@@ -42,6 +43,7 @@ cách 2:
   --primary-green: #00a859;
   --primary-blue: oklch(0.34 0.09 253.69);
   --gray-8: #3d3d3d;
+  --gray-7: #b9b9b9;
   --outline-color: #7fb7ff;
 }
 

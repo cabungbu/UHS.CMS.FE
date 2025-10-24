@@ -1,12 +1,25 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const axiosClient = axios.create({
   withCredentials: true,
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  timeout: 10000,
+  headers: { "Content-Type": "application/json" },
 });
 
 // intercept request
 axiosClient.interceptors.request.use(async (config) => {
   try {
+    let token;
+    // const state = store.getState();
+    //  token = state.auth?.access_token;
+    //   if (!token) {
+    //     token = Cookies.get("access_token");
+    //   }
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
     return config;
   } catch (e) {
     console.error("Axios request interceptor error:", e);

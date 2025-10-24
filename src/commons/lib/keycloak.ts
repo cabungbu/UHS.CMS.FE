@@ -9,7 +9,7 @@ export const getLoginUrl = (codeChallenge: string) => {
     client_id: clientId,
     redirect_uri: redirectUri,
     response_type: "code",
-    scope: "openid profile email",
+    scope: "openid profile email custom-attributes",
     code_challenge: codeChallenge,
     code_challenge_method: "S256",
   });
